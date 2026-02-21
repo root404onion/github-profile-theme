@@ -159,8 +159,8 @@ function updatePreview() {
 
 // ─── Build card URL ─────────────────────────────────────────────────
 function getCardUrl(username, theme, layout) {
-    let url = `${CARD_BASE}/${username}/${theme}`;
-    if (layout !== "standard") url += `?layout=${layout}`;
+    let url = `${CARD_BASE}/${encodeURIComponent(username)}/${encodeURIComponent(theme)}`;
+    if (layout !== "standard") url += `?layout=${encodeURIComponent(layout)}`;
     return url;
 }
 
