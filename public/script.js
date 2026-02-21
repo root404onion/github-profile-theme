@@ -148,7 +148,12 @@ function generateCard() {
 function updatePreview() {
     const url = getCardUrl(currentUsername, currentTheme, currentLayout);
     const preview = document.getElementById("previewCard");
-    preview.innerHTML = `<img src="${url}" alt="GitHub Stats Card" loading="lazy">`;
+    preview.replaceChildren();
+    const img = document.createElement("img");
+    img.src = url;
+    img.alt = "GitHub Stats Card";
+    img.loading = "lazy";
+    preview.appendChild(img);
     updateEmbedCode();
 }
 
