@@ -1,0 +1,19 @@
+version: 2
+updates:
+  # Maintain dependencies for the Firebase Cloud Function
+  - package-ecosystem: "npm"
+    directory: "/functions"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    groups:
+      # Group all updates into a single PR for less noise
+      all-updates:
+        patterns:
+          - "*"
+  
+  # Maintain GitHub Actions dependencies
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
