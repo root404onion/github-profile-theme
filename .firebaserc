@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "xeze-org"
+  },
+  "targets": {
+    "xeze-org": {
+      "hosting": {
+        "github-x": [
+          "github-x"
+        ]
+      }
+    }
+  }
+}

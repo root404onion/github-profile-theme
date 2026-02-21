@@ -1,0 +1,10 @@
+{
+  "name": "github-contribution-counter",
+  "version": "2.0.0",
+  "description": "GitHub contribution counter with Firebase Cloud Functions",
+  "scripts": {
+    "dev": "firebase emulators:start --only functions,hosting,database",
+    "deploy": "firebase deploy"
+  },
+  "dependencies": {}
+}

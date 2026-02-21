@@ -1,0 +1,18 @@
+{
+  "rules": {
+    "profile-views": {
+      "$username": {
+        ".read": true,
+        ".write": "!data.exists() || newData.val() > data.val()",
+        ".validate": "newData.isNumber() && newData.val() >= 0"
+      }
+    },
+    "card-cache": {
+      "$username": {
+        ".read": true,
+        ".write": true,
+        ".validate": "newData.hasChildren(['total', 'stars', 'timestamp'])"
+      }
+    }
+  }
+}

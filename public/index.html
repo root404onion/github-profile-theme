@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Stats Card Generator</title>
+    <meta name="description"
+        content="Generate beautiful, dynamic GitHub stats cards for your README. 30+ themes, 3 layouts, real-time stats.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Hero -->
+    <header class="hero">
+        <div class="hero-glow"></div>
+        <div class="container">
+            <div class="hero-badge">Open Source</div>
+            <h1>GitHub Stats Card</h1>
+            <p class="hero-subtitle">Beautiful, dynamic stats cards for your GitHub README.<br>30 themes. 3 layouts.
+                Real-time data.</p>
+        </div>
+    </header>
+
+    <!-- Generator -->
+    <main class="container">
+        <section class="generator-card">
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="username">GitHub Username</label>
+                    <input type="text" id="username" placeholder="e.g. root404onion" autocomplete="off"
+                        spellcheck="false">
+                </div>
+                <button id="generateBtn" onclick="generateCard()">Generate</button>
+            </div>
+
+            <!-- Layout Picker -->
+            <div class="layout-picker">
+                <label>Layout</label>
+                <div class="layout-options">
+                    <button class="layout-btn active" data-layout="standard" onclick="selectLayout('standard', this)">
+                        <svg width="32" height="22" viewBox="0 0 32 22">
+                            <rect x="1" y="1" width="30" height="20" rx="3" fill="none" stroke="currentColor"
+                                stroke-width="1.5" />
+                            <line x1="6" y1="7" x2="26" y2="7" stroke="currentColor" stroke-width="1" opacity="0.5" />
+                            <line x1="6" y1="12" x2="26" y2="12" stroke="currentColor" stroke-width="1" opacity="0.3" />
+                            <line x1="6" y1="17" x2="20" y2="17" stroke="currentColor" stroke-width="1" opacity="0.3" />
+                        </svg>
+                        <span>Standard</span>
+                    </button>
+                    <button class="layout-btn" data-layout="compact" onclick="selectLayout('compact', this)">
+                        <svg width="28" height="18" viewBox="0 0 28 18">
+                            <rect x="1" y="1" width="26" height="16" rx="3" fill="none" stroke="currentColor"
+                                stroke-width="1.5" />
+                            <line x1="5" y1="6" x2="23" y2="6" stroke="currentColor" stroke-width="1" opacity="0.5" />
+                            <line x1="5" y1="10" x2="23" y2="10" stroke="currentColor" stroke-width="1" opacity="0.3" />
+                            <line x1="5" y1="14" x2="16" y2="14" stroke="currentColor" stroke-width="1" opacity="0.3" />
+                        </svg>
+                        <span>Compact</span>
+                    </button>
+                    <button class="layout-btn" data-layout="minimal" onclick="selectLayout('minimal', this)">
+                        <svg width="32" height="10" viewBox="0 0 32 10">
+                            <rect x="1" y="1" width="30" height="8" rx="2" fill="none" stroke="currentColor"
+                                stroke-width="1.5" />
+                            <line x1="5" y1="5" x2="27" y2="5" stroke="currentColor" stroke-width="1" opacity="0.4" />
+                        </svg>
+                        <span>Minimal</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Theme Grid -->
+            <div class="theme-section">
+                <label>Theme <span class="theme-count" id="themeCount"></span></label>
+                <div class="theme-categories" id="themeCategories"></div>
+            </div>
+        </section>
+
+        <!-- Preview -->
+        <section class="preview-section" id="previewSection" style="display:none;">
+            <h2>Preview</h2>
+            <div class="preview-wrapper">
+                <div class="preview-card" id="previewCard"></div>
+            </div>
+
+            <!-- Embed Codes -->
+            <div class="embed-section">
+                <div class="embed-tabs">
+                    <button class="embed-tab active" onclick="switchTab('markdown', this)">Markdown</button>
+                    <button class="embed-tab" onclick="switchTab('html', this)">HTML</button>
+                    <button class="embed-tab" onclick="switchTab('url', this)">URL</button>
+                </div>
+                <div class="code-block">
+                    <code id="embedCode"></code>
+                    <button class="copy-btn" onclick="copyCode()">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <rect x="5" y="5" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5" />
+                            <path d="M11 5V3.5A1.5 1.5 0 009.5 2h-6A1.5 1.5 0 002 3.5v6A1.5 1.5 0 003.5 11H5"
+                                stroke="currentColor" stroke-width="1.5" />
+                        </svg>
+                        <span>Copy</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Theme Showcase -->
+        <section class="showcase-section">
+            <h2>All Themes</h2>
+            <p class="showcase-subtitle">Click any theme to use it</p>
+            <div class="showcase-grid" id="showcaseGrid"></div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Built with Firebase Cloud Functions &middot; <a href="https://github.com/root404onion"
+                    target="_blank">@root404onion</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

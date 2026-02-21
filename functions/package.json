@@ -1,0 +1,12 @@
+{
+    "name": "github-x-functions",
+    "description": "Firebase Cloud Functions for GitHub Stats Card SVG generation",
+    "engines": {
+        "node": "20"
+    },
+    "main": "index.js",
+    "dependencies": {
+        "firebase-functions": "^6.0.0",
+        "node-fetch": "^2.7.0"
+    }
+}
